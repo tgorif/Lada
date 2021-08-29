@@ -1,17 +1,17 @@
 package com.tgorif.Lada;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+@Component
 public class ConsumableManager {
     @Autowired
-    private ConsumableRepository consumableRepository;
-
-    public ConsumableManager(){};
-
+    public ConsumableRepository consumableRepository;
+    public ConsumableManager(ConsumableRepository consumableRepository){this.consumableRepository=consumableRepository;};
     public Consumable findByName(String name){ return consumableRepository.findByName(name);}
     public List<Consumable> findAll(){ return consumableRepository.findAll();}
     public Map<String,Integer> getQuantities(){
