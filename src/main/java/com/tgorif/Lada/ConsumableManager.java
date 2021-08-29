@@ -10,8 +10,8 @@ import java.util.Map;
 @Component
 public class ConsumableManager {
     @Autowired
-    public ConsumableRepository consumableRepository;
-    public ConsumableManager(ConsumableRepository consumableRepository){this.consumableRepository=consumableRepository;};
+    public static ConsumableRepository consumableRepository;
+    public ConsumableManager(ConsumableRepository consumableRepository){consumableRepository=consumableRepository;};
     public Consumable findByName(String name){ return consumableRepository.findByName(name);}
     public List<Consumable> findAll(){ return consumableRepository.findAll();}
     public Map<String,Integer> getQuantities(){
@@ -21,6 +21,10 @@ public class ConsumableManager {
             else map.put(c.name,1);
         }
         return map;
+    }
+    public static Consumable put(Consumable consumable){
+        consumableRepository.save(consumable);
+        return consumable;
     }
 
 
