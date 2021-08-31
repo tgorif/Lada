@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Contents</title>
+</head>
+<body>
+<div class="ConsumableManager" th:unless="${#lists.isEmoty(currentConsumables}">
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Quantity</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="ac : ${currentConsumables}">
+            <td th:text="${ac.name}"></td>
+            <td th:text="${ac.quantity}"></td>
+        </tr>
+    </tbody>
+</table>
+</div>
+</body>
+</html>
