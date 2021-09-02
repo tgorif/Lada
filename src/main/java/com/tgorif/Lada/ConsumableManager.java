@@ -44,7 +44,7 @@ public class ConsumableManager {
     @GetMapping
     public String index(Model model){
         System.out.println("dsad" + repository.findAll().size());
-        model.addAllAttributes(repository.findAll());
+        model.addAttribute("currentConsumables",repository.findAll());
         return "Consumable";
     }
 
